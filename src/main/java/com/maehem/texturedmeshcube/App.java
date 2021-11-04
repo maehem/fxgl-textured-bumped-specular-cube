@@ -17,10 +17,8 @@ import com.almasb.fxgl.entity.components.TransformComponent;
 import com.almasb.fxgl.input.Input;
 import com.almasb.fxgl.input.UserAction;
 import java.io.File;
-import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FilenameFilter;
 import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -111,7 +109,7 @@ public class App extends GameApplication {
             viewRadius += t.getDeltaY()/10.0;
             if ( viewRadius < 20.0 ) viewRadius = 20.0;
             if ( viewRadius > 100.0) viewRadius = 100.0;
-            System.out.println("View Radius: " + viewRadius);
+            //System.out.println("View Radius: " + viewRadius);
         });
         // Rotate the camera around the cube by dragging mouse.
         getGameScene().getRoot().setOnMouseDragged((t) -> {
@@ -128,7 +126,7 @@ public class App extends GameApplication {
         input.addAction(new UserAction("Previous Texture") {
             @Override
             protected void onActionBegin() {
-                System.out.println("Previous Texture");
+                //System.out.println("Previous Texture");
                 textureIndex--;
                 if ( textureIndex < 0 ) {
                     textureIndex = materials.size()-1; // Wrap around
@@ -139,7 +137,7 @@ public class App extends GameApplication {
         input.addAction(new UserAction("Next Texture") {
             @Override
             protected void onActionBegin() {
-                System.out.println("Next Texture");
+                //System.out.println("Next Texture");
                 textureIndex++;
                 if ( textureIndex > materials.size()-1 ) {
                     textureIndex = 0; // Wrap around
@@ -236,9 +234,6 @@ public class App extends GameApplication {
         meshView.setMaterial(materials.get(0));
         
         return meshView;
-    }
-    
-    private void setMesh(int index) {
     }
     
     private void buildTextureList() {
